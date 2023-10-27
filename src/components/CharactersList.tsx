@@ -1,5 +1,4 @@
-import React, { memo } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 import styled from "styled-components";
 import CharacterItem, { CharacterItemProps } from "./CharacterItem";
 
@@ -19,7 +18,6 @@ interface CharactersListProps {
   items: CharacterItemProps[];
   location: Location;
 }
-
 const CharactersList: React.FC<CharactersListProps> = ({ items }) => (
   <Characters>
     {items.map(({ id, ...rest }) => (

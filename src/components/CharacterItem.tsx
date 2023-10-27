@@ -66,7 +66,10 @@ const CharactersDescr = styled.p`
   letter-spacing: 0.25px;
   color: rgba(0, 0, 0, 0.6);
 `;
-
+export interface Location {
+  name: string;
+  url: string;
+}
 export interface CharacterItemProps {
   id: number;
   image: string;
@@ -74,6 +77,7 @@ export interface CharacterItemProps {
   species: string;
   location: Location;
 }
+
 const CharacterItem: React.FC<CharacterItemProps> = ({
   id,
   image,
