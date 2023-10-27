@@ -1,23 +1,20 @@
-import "./App.css";
+import { lazy, Suspense } from "react";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 
-function App() {
+const Home = lazy(() => import("./pages/HomePage"));
+const Details = lazy(() => import("./pages/Details"));
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/character/:id" element={<Details />} />
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
