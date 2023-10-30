@@ -22,7 +22,7 @@
   },
   "include": [
     "src",
-    "src/App.tsx",
-    "src/index.tsx"
+    "src/App.js",
+    // "src/index.js"
   ]
 }
