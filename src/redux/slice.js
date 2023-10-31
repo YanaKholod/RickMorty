@@ -4,43 +4,36 @@ import { fetchAllCharacters, fetchCharacter } from "./actions";
 const charactersSlice = createSlice({
   name: "characters",
   initialState: {
-    characters: {
-      data: [],
-      loading: "idle",
-      error: null,
-    },
+    charactersArray: [],
     character: null,
+    error: null,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchAllCharacters.pending, (state) => {
-        state.characters.loading = "pending";
-        state.characters.error = null;
+        state.error = null;
       })
       .addCase(fetchAllCharacters.fulfilled, (state, action) => {
-        state.characters.loading = "fulfilled";
-        state.characters.data = action.payload;
-        console.log("dhdhdgdghd", state.characters.data);
+        state.charactersArray = action.payload;
+
+        state.error = null;
       })
       .addCase(fetchAllCharacters.rejected, (state, action) => {
-        state.characters.loading = "rejected";
-        state.characters.error = action.error.message;
+        state.error = action.payload;
       })
       .addCase(fetchCharacter.pending, (state) => {
         state.character = null;
-        state.characters.loading = "pending";
-        state.characters.error = null;
+        state.error = null;
       })
       .addCase(fetchCharacter.fulfilled, (state, action) => {
+        console.log(action.payload, "action");
         state.character = action.payload;
-        state.characters.loading = "fulfilled";
       })
       .addCase(fetchCharacter.rejected, (state, action) => {
-        state.characters.loading = "rejected";
-        state.characters.error = action.error.message;
+        state.error = action.payload;
       });
   },
 });
 
-export default charactersSlice.reducer;
+export const characterReducer = charactersSlice.reducer;
