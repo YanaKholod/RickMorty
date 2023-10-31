@@ -11,6 +11,8 @@ const Styled = {
       "Segoe UI Symbol";
     box-sizing: border-box;
     overflow-y: scroll;
+    background: rgb(39, 43, 51);
+    height: 100vh;
   `,
 };
 

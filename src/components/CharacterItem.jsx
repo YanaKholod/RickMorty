@@ -1,8 +1,7 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { fetchCharacter } from "../redux/actions";
+
 const Styled = {
   Wrapper: styled.div`
     width: 600px;
@@ -36,6 +35,37 @@ const Styled = {
     display: flex;
     flex-direction: column;
   `,
+  CharacterName: styled(Link)`
+    text-decoration: none;
+    border-bottom: none;
+    :hover {
+      color: #ff6f00;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin: 0px;
+      padding: 0;
+      font-weight: 800;
+      line-height: 1.1;
+      color: rgb(245, 245, 245);
+    }
+  `,
+  LighterText: styled.p`
+    color: rgb(158, 158, 158);
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0px;
+    padding: 0px;
+  `,
+  SecondPart: styled.div`
+    margin-top: 13px;
+    span {
+      font-size: 19px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 2.5;
+    }
+  `,
 };
 const CharacterItem = ({ character }) => {
   return (
@@ -45,14 +75,17 @@ const CharacterItem = ({ character }) => {
       </Styled.ImgContainer>
       <Styled.InfoContainer>
         <div>
-          <Link to={`/character/${character.id}`}>
+          <Styled.CharacterName to={`/character/${character.id}`}>
             <h2>{character.name}</h2>
-          </Link>
-          <span> {character.status} - </span>
+          </Styled.CharacterName>
+          <span>
+            {character.status} - {character.species}
+          </span>
         </div>
-
-        <span> {character.species}</span>
-        <p>Last known location: {character.location.name}</p>
+        <Styled.SecondPart>
+          <Styled.LighterText>Last known location: </Styled.LighterText>
+          <span>{character.location.name}</span>
+        </Styled.SecondPart>
       </Styled.InfoContainer>
     </Styled.Wrapper>
   );

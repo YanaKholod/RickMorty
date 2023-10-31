@@ -27,7 +27,7 @@ const charactersSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchCharacter.fulfilled, (state, action) => {
-        console.log(action.payload, "action");
+        console.log(action.payload, "actionPAYLOAD");
         state.character = action.payload;
       })
       .addCase(fetchCharacter.rejected, (state, action) => {
