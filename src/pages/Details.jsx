@@ -1,23 +1,13 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchAllCharacters } from "../reduxJs/actions";
-import ItemCard from "../componentsJs/ItemCard";
-import Container from "../componentsJs/Container";
+import { useSelector } from "react-redux";
+import Container from "../components/Container";
+import CharacterDetailsPage from "../components/CharacterDetailsPage";
 
-const CharacterDetailsPage = ({ match }) => {
-  const { id } = match.params;
-  const character = useSelector((state) => state.characters.character);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchAllCharacters(id));
-  }, [dispatch, id]);
-
+const Details = () => {
   return (
     <Container>
-      <ItemCard character={character} />
+      <CharacterDetailsPage />
     </Container>
   );
 };
 
-export default CharacterDetailsPage;
+export default Details;
