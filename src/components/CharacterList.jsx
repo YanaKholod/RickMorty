@@ -21,6 +21,7 @@ const FilterContainer = styled.div`
   justify-content: flex-start;
   margin-bottom: 20px;
   margin-left: 40px;
+  width: 300px;
 `;
 
 const FilterInput = styled.input`
@@ -28,7 +29,6 @@ const FilterInput = styled.input`
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-right: 10px;
-  width: 300px;
 `;
 function CharacterList() {
   const dispatch = useDispatch();

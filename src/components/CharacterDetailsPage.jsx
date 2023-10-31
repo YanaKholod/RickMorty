@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { fetchCharacter } from "../redux/actions";
 import styled from "styled-components";
 import Header from "./Header";
+import Footer from "./Footer";
 
 const Styled = {
   Wrapper: styled.div`
@@ -11,9 +12,11 @@ const Styled = {
     color: rgb(255, 255, 255);
     margin-top: 80px;
     border-radius: 9px;
+    margin-left: 10%;
     background: #3c3e44;
-    width: 1220px;
+    width: 1000px;
     height: 571px;
+    margin-bottom: 40px;
   `,
   InfoContainer: styled.div`
     display: flex;
@@ -26,8 +29,8 @@ const Styled = {
   `,
   ImgContainer: styled.div`
     img {
-      width: 595px;
-      height: 572px;
+      width: 590px;
+      height: 570px;
       flex-shrink: 0;
     }
   `,
@@ -47,6 +50,11 @@ const Styled = {
       line-height: 2.5;
     }
   `,
+  Block: styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  `,
 };
 const CharacterDetailsPage = () => {
   const { id } = useParams();
@@ -57,8 +65,6 @@ const CharacterDetailsPage = () => {
   useEffect(() => {
     dispatch(fetchCharacter(characterId));
   }, [dispatch, characterId]);
-
-  console.log("CHARACTER", character);
 
   if (!character) {
     return <div>Loading...</div>;
@@ -81,6 +87,7 @@ const CharacterDetailsPage = () => {
           </Styled.SecondPart>
         </Styled.InfoContainer>
       </Styled.Wrapper>
+      <Footer />
     </div>
   );
 };
