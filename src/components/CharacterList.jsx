@@ -90,7 +90,6 @@ const CharacterList = () => {
   const filteredCharacters = charactersArray.filter((character) =>
     character.name.toLowerCase().includes(nameFilter.toLowerCase())
   );
-  console.log("CHCHCHCH", charactersArray);
   return (
     <div>
       <FilterContainer>
