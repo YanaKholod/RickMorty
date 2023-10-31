@@ -18,7 +18,14 @@ const Styled = {
   `,
 };
 const Footer = () => {
-  return <Styled.Wrapper>Footer</Styled.Wrapper>;
+  return (
+    <Styled.Wrapper>
+      <div>
+        <p>Kholod Yana </p>
+        <p>Test task</p>
+      </div>
+    </Styled.Wrapper>
+  );
 };
 
 export default Footer;

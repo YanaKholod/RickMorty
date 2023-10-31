@@ -67,6 +67,7 @@ const Styled = {
     }
   `,
 };
+
 const CharacterItem = ({ character }) => {
   return (
     <Styled.Wrapper>
