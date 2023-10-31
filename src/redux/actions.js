@@ -5,7 +5,9 @@ export const fetchAllCharacters = createAsyncThunk(
   "character/fetchAll",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get(FETCH_ALL);
+      const response = await axios.get(FETCH_ALL, {
+        params: "",
+      });
       return response.data.results;
     } catch (error) {
       return rejectWithValue(

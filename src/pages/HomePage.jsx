@@ -1,10 +1,7 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchAllCharacters } from "../redux/actions";
 import CharacterList from "../components/CharacterList";
-import Container from "../components/Container";
 import styled from "styled-components";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const Styled = {
   Wrapper: styled.div`
@@ -28,6 +25,7 @@ const HomePage = () => {
       <Styled.MainInfoWrapper>
         <CharacterList />
       </Styled.MainInfoWrapper>
+      <Footer />
     </div>
   );
 };

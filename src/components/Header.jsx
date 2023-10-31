@@ -4,6 +4,7 @@ import styled from "styled-components";
 const Styled = {
   Wrapper: styled.div`
     display: flex;
+    background: white;
     -webkit-box-pack: center;
     justify-content: center;
     -webkit-box-align: center;
